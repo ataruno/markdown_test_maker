@@ -1,0 +1,66 @@
+{
+  "name": "markdowntestmaker",
+  "displayName": "Markdown Test Maker",
+  "description": "Creates fill-in-the-blank questions on markdown.",
+  "version": "0.0.1",
+  "publisher": "ataruno",
+  "license": "SEE LICENSE IN LICENSE",
+  "icon": "images/MarkdownTestMaker_logo.png",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "categories": [
+    "Other","Snippets"
+  ],
+  "keywords": [
+    "markdown",
+    "html",
+    "Snippets",
+    "generator",
+    "documentation"
+  ],
+  "activationEvents": [
+    "onCommand:markdowntestmaker.MadeByAsterisk",
+    "onCommand:markdowntestmaker.MadeByBox",
+    "onCommand:markdowntestmaker.changeFill_in_the_blank"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdowntestmaker.MadeByAsterisk",
+        "title": "Markdown Test Maker : Made By Asterisk ***"
+      },
+      {
+        "command": "markdowntestmaker.MadeByBox",
+        "title": "Markdown Test Maker : Made By Box"
+      },
+      {
+        "command": "markdowntestmaker.MadeByFill_in_the_blank",
+        "title": "Markdown Test Maker : Made By Fill-in-the-blank"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.69.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "@vscode/test-electron": "^2.1.5",
+    "eslint": "^8.18.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4",
+    "vsce": "^2.9.2"
+  }
+}
