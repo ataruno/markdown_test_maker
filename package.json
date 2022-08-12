@@ -2,7 +2,7 @@
   "name": "markdowntestmaker",
   "displayName": "Markdown Test Maker",
   "description": "Creates fill-in-the-blank questions on markdown.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "https://github.com/ataruno/markdown_test_maker",
   "publisher": "ataruno",
   "license": "SEE LICENSE IN LICENSE",
@@ -23,7 +23,8 @@
   "activationEvents": [
     "onCommand:markdowntestmaker.MadeByAsterisk",
     "onCommand:markdowntestmaker.MadeByBox",
-    "onCommand:markdowntestmaker.changeFill_in_the_blank"
+    "onCommand:markdowntestmaker.MadeByFill_in_the_blank",
+    "onCommand:markdowntestmaker.MadeByBox_and_Answer"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -39,6 +40,10 @@
       {
         "command": "markdowntestmaker.MadeByFill_in_the_blank",
         "title": "Markdown Test Maker : Made By Fill-in-the-blank"
+      },
+      {
+        "command": "markdowntestmaker.MadeByBox_and_Answer",
+        "title": "Markdown Test Maker : Made By Box&Answer"
       }
     ]
   },

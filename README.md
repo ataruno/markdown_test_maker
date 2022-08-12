@@ -25,6 +25,11 @@ This is an extension to create fill-in-the-blank questions with sentences descri
 * Replaces the selected text with the input box.
 * Hover your mouse over the [*] next to the box to see the answer.
 
+### Markdown Test Maker : Made By Box and Answer
+* Replaces the selected text with the input box.
+* It will be numbered as a legend.
+* Answers are listed at the bottom of the text.
+
 ## Settings
 Allow markdown to use html styles from vscode settings
 
@@ -73,6 +78,11 @@ Markdownで記載した文章で穴埋め問題を作る拡張機能です。
 ![](https://raw.githubusercontent.com/ataruno/markdown_test_maker/master/images/MadeByBox.gif)
 * 選択したテキストを入力ボックスで置き換えます。
 * ボックス横の[*]にマウスをホバーすると答えが見えます。
+
+### Markdown Test Maker : Made By Box and Answer
+* 選択したテキストを入力ボックスで置き換えます。
+* 凡例機能を使って問題番号がふられます。
+* 答えが文章の最下部にリストアップされます。
 
 ## 設定
 * markdownでhtml形式での記載をvscodeの設定から許可してください。
