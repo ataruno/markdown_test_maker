@@ -71,6 +71,31 @@ export function activate(context: vscode.ExtensionContext) {
             }
         }
     });
+    disposable = vscode.commands.registerCommand('markdowntestmaker.MadeByBox_and_Answer', () => {
+        const editor = vscode.window.activeTextEditor;
+        if (editor) {
+            const document = editor.document;
+            const selection = editor.selection;
+            const text = document.getText(selection);
+            if (text) {
+                const [textFormatted, last_text] = MadeByBox_and_Answer(text);
+                let totalLines = 0;
+                totalLines = (document.getText().match(/\n/g) || '').length;
+                let originalPosition = selection.start.translate(totalLines, 0);
+                if (textFormatted) {
+                    editor.edit(editBuilder => { editBuilder.replace(selection, textFormatted), editBuilder.insert(originalPosition, last_text); });
+                }
+                else {
+                    vscode.window.showInformationMessage("text not formatted.");
+                    console.log("text not formatted.");
+                }
+            }
+            else {
+                vscode.window.showInformationMessage("text not detected.");
+                console.log("text not detected.");
+            }
+        }
+    });
     disposable = vscode.commands.registerCommand('markdowntestmaker.delate_quention', () => {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
@@ -133,6 +158,22 @@ function MadeByHTML(text: string): [string,string] {
     inputbox = in1 + inbox_id + in2 + func_id +in3 + inbox_id + in4 + func_id + in5;
     checker = ch1 + func_id + ch2 + text + ch3 + func_id + ch4 + text + ch5 + text + ch6 + text + ch7;
     return [inputbox,checker];
+}
+
+function MadeByBox_and_Answer(text: string): [string,string] {
+    let inputbox = '';
+    let checker = '';
+    // let ransu = Math.random().toString(32).substring(2).slice(-8);
+    let func_id = createRandomString();
+    let inbox_id = createRandomString();
+    let in1 = '<input type="text" id="';
+    let in2 = '">[^';
+    let in3 = ']';
+    let ch1 = '\n[^';
+    let ch2 = ']:';
+    inputbox = in1 + inbox_id + in2 + func_id + in3;
+    checker = ch1 + func_id + ch2 + text;
+    return [inputbox, checker];
 }
 
 function createRandomString() {
